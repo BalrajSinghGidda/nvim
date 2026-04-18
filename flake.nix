@@ -7,19 +7,18 @@
 	};
 
 	outputs = { self, nixpkgs, nvf, ... }:
-		let
-		systems = [ "x86_64-linux" "x86_64-darwin" ];
+	let
+	  systems = [ "x86_64-linux" "x86_64-darwin" ];
 	in
 	{
-		packages = builtins.genAttrs systems (system:
-				let pkgs = import nixpkgs { inherit system; };
-				in {
-				default = nvf.lib.neovimConfiguration {
-				inherit pkgs;
-				modules = [ ./config ];
-				};
-				}
-				);
+	  packages = nixpkgs.lib.genAttrs systems (system:
+	    let pkgs = import nixpkgs { inherit system; };
+	    in {
+	      default = nvf.lib.neovimConfiguration {
+	        inherit pkgs;
+	        modules = [ ./config ];
+	      };
+	    }
+	  );
 	};
-
 }
