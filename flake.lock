@@ -116,11 +116,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1776523123,
-        "narHash": "sha256-qWm/TLDnMACnJL90vK4+8A1tviwZT2xpWy7VWI76RHw=",
+        "lastModified": 1776539146,
+        "narHash": "sha256-zuaO3Gi+HUf4Udv6wiCsK29SKh/Q6kwacpTn8gIwyZY=",
         "ref": "refs/heads/main",
-        "rev": "30965edbb029252babce7ca84dc11178e6810280",
-        "revCount": 3252,
+        "rev": "2809f4d43071e124f316ecf6dd0c68302f1078af",
+        "revCount": 3254,
         "type": "git",
         "url": "https://github.com/notashelf/nvf"
       },
