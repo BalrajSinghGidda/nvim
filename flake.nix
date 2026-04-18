@@ -1,22 +1,25 @@
 {
-  description = "Balraj's standalone nvf config";
+	description = "Balraj's standalone nvf config";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nvf.url = "github:notashelf/nvf";
-  };
+	inputs = {
+		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+		nvf.url = "github:notashelf/nvf";
+	};
 
-  outputs = { self, nixpkgs, nvf, ... }:
-  let
-    system = "x86_64-linux"; # we'll fix mac later
-    pkgs = import nixpkgs { inherit system; };
-  in {
-    packages.${system}.default = nvf.lib.neovimConfiguration {
-      inherit pkgs;
+	outputs = { self, nixpkgs, nvf, ... }:
+		let
+		systems = [ "x86_64-linux" "x86_64-darwin" ];
+	in
+	{
+		packages = builtins.genAttrs systems (system:
+				let pkgs = import nixpkgs { inherit system; };
+				in {
+				default = nvf.lib.neovimConfiguration {
+				inherit pkgs;
+				modules = [ ./config ];
+				};
+				}
+				);
+	};
 
-      modules = [
-        ./config
-      ];
-    };
-  };
 }
