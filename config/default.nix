@@ -56,6 +56,15 @@
       -- Disable transparency
       vim.g.transparent_enabled = false
 
+require("which-key").setup({
+  plugins = {
+    spelling = true,
+  },
+  window = {
+    border = "rounded",
+  },
+})
+
       -- Custom colorscheme based on new1.md
       vim.cmd([[
         hi clear
@@ -157,6 +166,18 @@
         hi DiagnosticInfo guifg=#b0d4e8
         hi DiagnosticHint guifg=#abd4bf
       ]])
+local wk = require("which-key")
+
+wk.register({
+  f = {
+    name = "Find",
+    f = "Files",
+    g = "Grep",
+    b = "Buffers",
+  },
+  g = { name = "Git" },
+  t = { name = "Terminal" },
+}, { prefix = "<leader>" })
     '';
 
     # Editor options
@@ -165,18 +186,9 @@
       tabstop = 4; # Tab displays as 4 spaces
     };
 
-which-key = {
-  enable = true;
-
-  setupOpts = {
-    plugins = {
-      spelling = true;
-    };
-    window = {
-      border = "rounded";
-    };
-  };
-};
+extraPlugins = with pkgs.vimPlugins; [
+  which-key-nvim
+];
 
     # Language support configuration
     languages = {
