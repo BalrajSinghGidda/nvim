@@ -165,6 +165,19 @@
       tabstop = 4; # Tab displays as 4 spaces
     };
 
+which-key = {
+  enable = true;
+
+  setupOpts = {
+    plugins = {
+      spelling = true;
+    };
+    window = {
+      border = "rounded";
+    };
+  };
+};
+
     # Language support configuration
     languages = {
       enableTreesitter = true; # Syntax highlighting and parsing
