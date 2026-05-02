@@ -186,9 +186,11 @@ wk.register({
       tabstop = 4; # Tab displays as 4 spaces
     };
 
-extraPlugins = with pkgs.vimPlugins; [
-  which-key-nvim
-];
+extraPlugins = {
+  which-key = {
+    package = pkgs.vimPlugins.which-key-nvim;
+  };
+};
 
     # Language support configuration
     languages = {
