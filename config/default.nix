@@ -209,7 +209,7 @@ extraPlugins = {
       yaml.enable = true;
 
       # TypeScript with enhanced diagnostics
-      ts = {
+      typescript = {
         enable = true;
         extraDiagnostics.enable = true;
       };
