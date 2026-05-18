@@ -157,7 +157,12 @@
     # Status line at the bottom
     statusline.lualine = {
       enable = true;
-      theme = "dms";
+      # Bypass the enum check for 'theme' by using setupOpts
+      setupOpts = {
+        options = {
+          theme = "dms";
+        };
+      };
     };
 
     # Git integration
